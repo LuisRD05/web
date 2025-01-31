@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pinky-MP3 aqui podras encotrar musicas de tus artistas favoritos.">
+    <meta name="author" content="Luis Angel Tejeda">
+    <title>Artistas</title>
+    <link rel="icon" href="Logo/icono.png">
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #090909;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #FF5722; 
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header .logo img {
+            width: 120px;
+        }
+
+        header h1.pinky {
+            font-size: 2.5rem;
+            margin-top: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        header .buscar {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+   
+        header .buscar input {
+            padding: 12px 18px;
+            border: 2px solid #ddd;
+            border-radius: 25px 0 0 25px;
+            width: 250px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin: 0; 
+        }
+
+        header .buscar input:focus {
+            border-color: #FF5722;
+            outline: none;
+        }
+
+        header .buscar button {
+            padding: 12px 18px;
+            background-color: #1731f1;
+            border: none;
+            border-radius: 0 25px 25px 0; 
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        header .buscar button:hover {
+            background-color: #302076;
+        }
+
+        header .buscar button i {
+            font-size: 1.2rem;
+        }
+
+    
+        nav.menu {
+            background-color: #FF5722;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav.menu ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav.menu ul li {
+            margin: 0 15px;
+        }
+
+        nav.menu ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav.menu ul li a:hover {
+            background-color: #FF9800;
+        }
+
+        nav.menu ul li i {
+            font-size: 1.5rem;
+        }
+
+
+        .artistas {
+            margin: 40px 20px;
+            padding: 20px;
+            background-color: #050503;
+            border-radius: 10px;
+        }
+
+        .artistas h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #FF5722; 
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        hr {
+            border: 1px solid #FF5722; /* Línea horizontal color naranja */
+            margin-bottom: 20px;
+        }
+
+        /* Cuadrícula de artistas */
+        .artistas-lista {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .artista {
+            background-color: #040404; /* Fondo amarillo brillante */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .artista:hover {
+            transform: scale(1.05);
+            background-color: #191918; /* Cambio de color al pasar el ratón */
+        }
+
+        .artista a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .artista img {
+            width: 50%;
+            border-radius: 50%;
+            height: auto;
+            border-bottom: 2px solid #ddd;
+            margin-top: 20px;
+        }
+
+        .artista p {
+            padding: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            background-color: #121210; /* Fondo amarillo suave */
+            margin: 0;
+            color: #f1e8e8;
+            text-transform: capitalize;
+        }
+
+        .artista:hover p {
+            color: #FF5722; /* Color naranja brillante en hover */
+        }
+
+        /* Estilo responsive */
+        @media (max-width: 768px) {
+            header h1.pinky {
+                font-size: 2rem;
+            }
+
+            .artistas h2 {
+                font-size: 2rem;
+            }
+
+            .artistas-lista {
+                grid-template-columns: repeat(2, 1fr); /* 2 por fila en pantallas más pequeñas */
+            }
+
+            .artista p {
+                font-size: 1rem;
+            }
+
+            header .buscar input {
+                width: 200px;
+            }
+
+            nav.menu ul li {
+                margin: 0 10px;
+            }
+
+            nav.menu ul li a {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1.pinky {
+                font-size: 1.5rem;
+            }
+
+            .artistas h2 {
+                font-size: 1.8rem;
+            }
+
+            .artistas-lista {
+                grid-template-columns: 1fr; /* Una sola columna en pantallas muy pequeñas */
+            }
+
+            .artista p {
+                font-size: 0.9rem;
+            }
+
+            header .buscar input {
+                width: 180px;
+            }
+        }
+
+        /* Estilo para el footer */
+        footer {
+            background-color: black; 
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 10px;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+
+        footer hr {
+            border: 1px solid #FF5722; 
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="Logo/Logo.png" alt="Logo de la página">
+            </div>
+            <h1 class="pinky">Pinky - MP3 😈</h1>
+            
+            <div class="buscar">
+                <input type="text" id="buscar" placeholder="Buscar">
+                <button onclick="buscar()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </header>
+
+        <main>
+            <nav class="menu">
+                <ul>
+                    <div class="icon-container">
+                    <li><a href="https://www.instagram.com/pinky_mp3.809/profilecard/?igsh=MTc2YTlkaHE5Y3c4bQ==" target="_blank"><i class="fab fa-instagram"></i>
+                        <span class="tooltip">Instagram</span></a></li>
+                    </div>
+                    <div class="icon-container">
+                        <li><a href="home.html"><i class="fa-solid fa-house"></i><span class="tooltip">Inicio</span></a></li>
+                    </div>
+                    <div class="icon-container">
+                        <li><a href="Albumes.html"><i class="fa-solid fa-record-vinyl"></i></a></li>
+                        <span class="tooltip">Albums</span>
+                    </div>
+                   <!-- <div class="icon-container">
+                        <li><a href="Sujerencias.php"><i class="fa-solid fa-comment"></i></a></li>
+                        <span class="tooltip">Sujerencias</span>
+                    </div>-->
+                 
+                </ul>
+            </nav>
+            
+            <section class="artistas">
+                <h2><i class="fa-solid fa-users"></i> Artistas</h2>
+                <hr>
+                <div class="artistas-lista">
+                    <div class="artista">
+                        <a href="./Bad Bunny/Bad Bunny.html">
+                            <img src="artista/Bad Bunny.avif" alt="Bad Bunny">
+                            <p>Bad Bunny</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./Arcangel/Arcangel.html">
+                            <img src="artista/Arcangel.jpg" alt="Arcangel">
+                            <p>Arcangel</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./Monkey Black/Monkey black.html">
+                            <img src="artista/Monkey Black.jpg" alt="Monkey Black">
+                            <p>Monkey Black</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./Lil Naay/Lil Naay.html">
+                            <img src="artista/Lil Naay.jpg" alt="Monkey Black">
+                            <p>Lil Naay</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./Jon Z/Jon Z.html">
+                            <img src="artista/Jon Z.jpg" alt="Jon Z">
+                            <p>Jon Z</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./Cirujano Nocturno/Cirujano Nocturno.html">
+                            <img src="artista/Cirujano Nocturno.jpg" alt="Cirujano Nocturno">
+                            <p>Cirujano Nocturno</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./Yailin/Yailin.html">
+                            <img src="artista/Yailin.jpg" alt="Yailin La Mas Viral">
+                            <p>Yailin La Mas Viral</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./Martin Lora/Martin Lora.html">
+                            <img src="artista/Martin Lora.jpg" alt="Martin Lora">
+                            <p>Martin Lora</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./Rochy RD/Rochy.html">
+                            <img src="artista/Rochy RD.jpg" alt="Rochy RD">
+                            <p>Rochy RD</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./braulio fogon/braulio fogon.html">
+                            <img src="artista/Braulio Fogon.webp" alt="Braulio Fogon">
+                            <p>Braulio Fogon</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./Shelow Shaq/Shelow Shaq.html">
+                            <img src="artista/Shelow Shaq.webp" alt="Shelow Shaq">
+                            <p>Shelow Shaq</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./N-Fasis/N-fasis.html">
+                            <img src="artista/N-Fasis.jpeg" alt="N-Fasis">
+                            <p>N-Fasis</p>
+                        </a>
+                    </div>
+                    <div class="artista">
+                        <a href="./Treintisiete/Treintisiete.html">
+                            <img src="artista/3730.jpg" alt="Treintisiete">
+                            <p>Treintisiete</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+
+            <img class="img" src="Logo/logo logo.png" alt="icono" width="100px">
+            <hr>
+            
+            <p>Derechos reservados © 2024 / 2025</p>
+            </footer>
+    </div>
+
+    <script src="funcion.js"></script>
+</body>
+</html>
